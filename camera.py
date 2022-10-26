@@ -4,7 +4,7 @@ import  cvzone
 cascade =cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 overlays = [cv2.imread('HeadGear_01.png', cv2.IMREAD_UNCHANGED),cv2.imread('HeadGear_02.png', cv2.IMREAD_UNCHANGED),
             cv2.imread('HeadGear_03.png', cv2.IMREAD_UNCHANGED)]
-position_of_headgears = [[10,110],[10,130],[10,110]]
+position_of_headgears = [[10,90],[10,90],[10,90]]
 size_of_headgears = []
 choice = 0
 total_headgears = len(overlays)
@@ -12,6 +12,8 @@ total_headgears = len(overlays)
 class Video(object):
     def __init__(self):
         self.video=cv2.VideoCapture(0)
+        self.video.set(cv2.CAP_PROP_FRAME_WIDTH, 500)
+        self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, 400)
         global choice
         choice=0
     def __del__(self):
