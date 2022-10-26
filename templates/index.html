@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>IHS-HeadGear Simulation</title>
+    <style>
+      .btn-default {
+          background-color: #8EC5FC;
+          background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+          color: black;
+          font-size: 16px;
+          font-family: sans-serif;
+          font-weight: 700;
+          /*text-shadow: 1px 1px black;*/
+          /*border-color: #bf00ff;*/
+          padding: 9px 30px;
+          text-decoration: none;
+
+       }
+      .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+         background-color: #bf00ff;
+         color:#FFF;
+         border-color: bisque;
+       }
+
+      .btn-local {
+          color: white;
+          font-size: 16px;
+          font-family: sans-serif;
+          font-weight: 700;
+          text-decoration: none;
+       }
+      .btn-local:hover {
+          color: white;
+      }
+
+      .india_nav{
+          margin: 0;
+
+          background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+
+          padding: 10px 25px;
+          display: flex;
+
+          text-decoration: none;
+
+      }
+
+      .India_link {
+
+          color: black;
+          /*text-shadow: 1px 1px #555150;*/
+          text-decoration: none;
+          font-size: 20px;
+          font-family: sans-serif;
+          padding-right: 50px;
+          font-weight: 700;
+      }
+
+      .India_link:hover{
+      color:#fff;
+      font-size:22px;
+      }
+
+
+
+      .display-area{
+        padding: 30px 50px;
+        background-color: bisque;
+        margin: 30px;
+        border-radius: 10px;
+      }
+      .display-area #head-display{
+        text-align: center;
+      }
+
+      .display-area #data-display{
+        <!--font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: large; -->
+
+      }
+      .data-menu{
+        background-color: transparent;
+        border: transparent;
+      }
+
+      #instruction{
+          /*text-shadow: 1px 1px white;*/
+          text-decoration: none;
+          font-size: 20px;
+          font-family: sans-serif;
+          font-weight: 700;
+        padding: 10px;
+        text-align: center; 
+        color: black;
+          font-style: inherit;
+          /*text-shadow: 1px 1px #555150;*/
+          border-color: white;
+          background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+      }
+
+    </style>
+
+
+  </head>
+  <body style="background: #001B3B;  /* fallback for old browsers */
+">
+
+    <nav class="navbar navbar-light bg-dark">
+        <div class="container">
+              <a class="btn-local">
+            <img src="https://i.postimg.cc/xTKsPZgm/site-logo.jpg" alt="IHS" width="35" height="25">
+        Indian Head-Gear Simulation
+              </a>
+            <a class="btn-default" href="{{url_for('culturalNews')}}">Latest Cultural News</a>
+            <a class="btn-default" href="{{url_for('start_the_quiz')}}">Test Your Knowledge</a>
+        </div>
+      </nav>
+
+    <h5 id="instruction">Keep your face in the middle of the frame</h5>
+    <div style="justify-content: center; display: flex; margin-top: 30px;"><img src="{{ url_for('video') }}"></div>
+
+    <div class='container text-center'>
+      <form>
+          <a href=# id=choice_selection><button class='btn btn-primary'>Next</button></a>
+      </form>
+    </div>
+    <div class='container text-center'>
+      <p id="demo" style="color:white;font-size:160%;font-weight: 700;" > </p>
+    </div>
+{% block content %}
+
+{% endblock %}
+
+<div class="india_nav">
+    <div id="history">
+      <button class="data-menu"><a href="#history" class ="India_link">History</a></button>
+    </div>  
+    <div id="significance">
+      <button class="data-menu"><a href="#Significance" class ="India_link">Significance</a></button>
+    </div>
+    <div id="photos">
+      <button class="data-menu"><a href="#Photos" class ="India_link">Photos</a></button>
+    </div>
+</div>
+
+<div class="display-area">
+  <h1 id="head-display"></h1>
+  <hr>
+  <p id="data-display"></p>
+    <img id="image-display">
+</div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+            var array = ["Blue Turban", "Green Cap", "Red Beanie"];
+            $(function() {
+              $('a#choice_selection').on('click', function(e) {
+              current_index = (current_index + 1) % array.length
+              document.getElementById("demo").innerHTML = array[current_index];
+              document.getElementById("data-display").innerHTML = dataItem[current_index];
+                e.preventDefault()
+                $.getJSON('/background_process_test',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+    </script>
+    <script>
+      current_index = 0
+      document.getElementById("demo").innerHTML = array[current_index];
+    </script>
+    <script type=text/javascript>
+      let heading = ["Blue Turban", "Green Cap", "Red Beanie"];
+      $(function() {
+        $('a#choice_selection').on('click', function(e) {
+        current_index = (current_index) % heading.length
+        document.getElementById("head-display").innerHTML = heading[current_index];
+          e.preventDefault();
+          return false;
+        });
+      });
+    </script>
+    <script>
+      current_index = 0
+      document.getElementById("head-display").innerHTML = heading[current_index];
+    </script>
+    <script type=text/javascript>
+      let dataItem = ["Blue", "Green", "Red"];
+      let histDataItem = ["Blue History", "Green history", "Red History"];
+      let SignDataItem = ["Blue Significance", "Green Significance", "Red Significance"];
+      let dataItemPics = ['blue.png',"green.png","red.png"];
+      
+      
+      $(function() {
+        $('div#history').on('click', function(e) {
+            //document.getElementById("image-display").src = '';
+        document.getElementById("data-display").innerHTML = histDataItem[current_index];
+          e.preventDefault()
+          return false;
+        });
+        $('div#significance').on('click', function(e) {
+            //document.getElementById("image-display").src = '';
+        document.getElementById("data-display").innerHTML = SignDataItem[current_index];
+          e.preventDefault();
+          return false;
+        });
+        $('div#photos').on('click', function(e) {
+        document.getElementById("data-display").innerHTML = '<img src= dataItemPics[current_index] />';
+        //document.getElementById('image-display').style.display = "block";
+        //document.getElementById("image-display").src = dataItemPics[current_index];
+          e.preventDefault();
+          return false;
+        });
+      });
+    </script>
+    <script>
+      current_index = 0
+      document.getElementById("data-display").innerHTML = dataItem[current_index];
+    </script>
+
+  </body>
+</html>
