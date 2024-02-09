@@ -27,7 +27,7 @@ def culturalNews():
            'sortBy=popularity&'
            'language=en&'
            'apiKey=8d9dec18335e4d82b8d31756136ebc10')
-    r = requests.get(url).json()
+    r = requests.get(url, timeout=60).json(timeout=60)
     case = {
         'articles' : r['articles']
     }
